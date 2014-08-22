@@ -1,2 +1,4 @@
 .ruby-version
 pkg
+doc
+.yardoc
