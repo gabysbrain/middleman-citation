@@ -70,7 +70,7 @@ entry matching the `key` has a `URL` field containing the DOI.
     if doi_url = entry.fetch('URL', false) then
       doi_link = "(%s)" % link_to('doi', doi_url)
     end
-   [entry_html, doi_link].compact.join(' ')
+    [entry_html, doi_link].compact.join(' ')
 
 ## Contributing
 
