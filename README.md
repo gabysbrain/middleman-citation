@@ -30,8 +30,8 @@ In your `config.rb` file for your site add:
     activate :citation do |opts|
       opts.bibtex = '/path/to/your.bib' # path to a bibtex file
       opts.style  = 'ieee'              # style from citeproc-styles
-	  opts.format = 'html'              # output format
-	end
+      opts.format = 'html'              # output format
+    end
 
 ## Usage
 
@@ -39,9 +39,9 @@ This adds the following helper methods you can use in your Middleman
 templates.
 
 * `citations_search(search_term, author)`: Search the BibTeX file for all
-	citations matching a search term (such as `'@article'`) and by the given
-	author.  The `author` argument can be ommitted to match all authors and
-	a `search_term` of `nil` will match all items in the bibliography.
+   citations matching a search term (such as `'@article'`) and by the given
+   author.  The `author` argument can be ommitted to match all authors and
+   a `search_term` of `nil` will match all items in the bibliography.
 
 * `citation(key)`: Given a BibTeX citation key as returned from
   `citations_search`, return a formatted string the citation according to
@@ -56,21 +56,21 @@ For extra control on the output, one can use:
 
 In fact the `citation` method is implemented using these:
 
-	def citation(key)
-	  entry = citation_entry(key)
-	  citation_formatted(entry)
+    def citation(key)
+      entry = citation_entry(key)
+      citation_formatted(entry)
     end
 
 The point is that one can interrogate the unformatted entry to
 add extra formatting: The following code adds a DOI link if the
 entry matching the `key` has a `URL` field containing the DOI.
 
-	entry      = citation_entry(key)
-	entry_html = citation_formatted(entry)
-	if doi_url = entry.fetch('URL', false) then
+    entry      = citation_entry(key)
+    entry_html = citation_formatted(entry)
+    if doi_url = entry.fetch('URL', false) then
       doi_link = "(%s)" % link_to('doi', doi_url)
     end
-	[entry_html, doi_link].compact.join(' ')
+   [entry_html, doi_link].compact.join(' ')
 
 ## Contributing
 

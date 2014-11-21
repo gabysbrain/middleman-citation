@@ -20,7 +20,7 @@ module Middleman
   
     helpers do
 
-      def search_citations(search_key, author = nil)
+      def citations_search(search_key, author = nil)
         entries_matching_key = bibtex.query(search_key)
         entries = 
           if author then
