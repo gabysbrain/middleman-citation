@@ -24,7 +24,7 @@ module Middleman
       # Params:
       # +key+:: bibtex key located in the BibTeX file defined in the config
       def cite_full(key)
-        Citations::cite_full(key, @@bibtex, @@cite_style)
+        Citations::cite_full(key, bibtex, cite_style, cite_format)
       end
 
       # Given a BibTeX citation return a block containing the citation
@@ -32,7 +32,7 @@ module Middleman
       # Params:
       # +key+:: bibtex key located in the BibTeX file defined in the config
       def cite_inline(key)
-        Citations::cite_inline(key, @@bibtex, @@cite_style)
+        Citations::cite_inline(key, bibtex, cite_style)
       end
 
       def citations_search(search_key, author = nil)
