@@ -1,5 +1,7 @@
 # Middleman-citation
 
+[ ![Codeship Status for gabysbrain/middleman-citation](https://codeship.com/projects/cd5fdc40-6601-0133-2d2b-5adfc3e4cb23/status?branch=master)](https://codeship.com/projects/113648)
+
 This is an extension for the [Middleman](http://middlemanapp.com/) static
 site generator that adds functions you can use in your templates for 
 formating citations from BibTeX.
