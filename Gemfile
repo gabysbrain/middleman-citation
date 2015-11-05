@@ -7,6 +7,8 @@ group :development do
   gem 'rake'
   gem 'rdoc'
   gem 'yard'
+  gem 'guard'
+  gem 'pry'
 end
 
 group :test do
@@ -14,4 +16,5 @@ group :test do
   gem 'aruba'
   gem 'rspec'
   gem 'rspec-html-matchers'
+  gem 'guard-rspec'
 end
