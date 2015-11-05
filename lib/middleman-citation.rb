@@ -46,19 +46,6 @@ module Middleman
         entries.sort { |x, y| y.year.to_i <=> x.year.to_i }.map(&:key)
       end
 
-      def citation_entry(key)
-        bibtex[key].convert_latex.to_citeproc
-      end
-
-      def citation_formatted(entry)
-        CiteProc.process(entry, :style => cite_style, :format => cite_format)
-      end
-
-      def citation(key)
-        entry = citation_entry(key)
-        citation_formatted(entry)
-      end
-
       private
 
       def search_by_author(entries, author)
