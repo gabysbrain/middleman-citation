@@ -22,10 +22,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "bibtex-ruby"
-  spec.add_runtime_dependency "citeproc-ruby", ["~> 0.0.6"]
+  spec.add_runtime_dependency "citeproc-ruby"
+  spec.add_runtime_dependency "csl-styles"
   spec.add_runtime_dependency "middleman-core", ["~> 3"]
-
-  spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "yard"
 end

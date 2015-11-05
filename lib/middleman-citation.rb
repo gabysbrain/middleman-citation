@@ -1,7 +1,9 @@
 require "middleman-citation/version"
+require "middleman-citation/citations"
 require "middleman-core"
 require "bibtex"
 require "citeproc"
+require "csl/styles"
 
 module Middleman
   class CitationExtension < Middleman::Extension
@@ -23,9 +25,15 @@ module Middleman
       # Params:
       # +key+:: bibtex key located in the BibTeX file defined in the config
       def cite_full(key)
-        # need to convert latex special characters, like {\"o} to unicode
-        @@bibtex[key].convert_latex
-        CiteProc.process(@@bibtex[key].to_citeproc, :style => @@cite_style)
+        Citations::cite_full(key, @@bibtex, @@cite_style)
+      end
+
+      # Given a BibTeX citation return a block containing the citation
+      # that we can embed in a webpage inline
+      # Params:
+      # +key+:: bibtex key located in the BibTeX file defined in the config
+      def cite_inline(key)
+        Citations::cite_inline(key, @@bibtex, @@cite_style)
       end
   
       # Search the BibTeX file for all citations of a certain type for a 
