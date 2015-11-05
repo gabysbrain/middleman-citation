@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    middleman-citation (0.0.1)
+    middleman-citation (0.0.2.2)
       bibtex-ruby
       citeproc-ruby
       csl-styles
