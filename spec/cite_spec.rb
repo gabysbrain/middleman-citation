@@ -2,7 +2,7 @@ require 'middleman-citation/citations'
 
 RSpec.describe Citations, "citations" do
   require 'bibtex'
-  bib = BibTeX.open('fixtures/test.bib')
+  bib = BibTeX.open('fixtures/test.bib', :filter => :latex)
 
   turkay_chi = "Turkay, Cagatay, J. Parulek, N. Reuter, and Helwig Hauser. 2011. “Interactive Visual Analysis of Temporal Cluster Structures.” Computer Graphics Forum 30 (3). Wiley-Blackwell: 711–20. doi:10.1111/j.1467-8659.2011.01920.x. http://dx.doi.org/10.1111/j.1467-8659.2011.01920.x."
   turkay_ieee = "C. Turkay, J. Parulek, N. Reuter, and H. Hauser, “Interactive Visual Analysis of Temporal Cluster Structures,” Computer Graphics Forum, vol. 30, no. 3, pp. 711–720, Jun. 2011."
@@ -10,11 +10,13 @@ RSpec.describe Citations, "citations" do
 
   context "long-form citation" do
     it "gives a nice error for a bad style" do
-      Citations::cite_full('Turkay:2011a', bib, 'crazyformat')
+      expect {Citations::cite_full('Turkay:2011a', bib, 'crazyformat')}.to \
+        raise_error(Citations::InvalidStyleError, /crazyformat/)
     end
 
     it "gives a nice error for a bad key" do
-      Citations::cite_full('nothere', bib, 'chicago-author-date')
+      expect {Citations::cite_full('notthere', bib, 'chicago-author-date')}.to \
+        raise_error(Citations::InvalidKeyError, /notthere/)
     end
 
     it "generates a proper chicago-style citation" do
