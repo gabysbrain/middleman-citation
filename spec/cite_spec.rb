@@ -4,7 +4,7 @@ RSpec.describe Citations, "citations" do
   require 'bibtex'
   bib = BibTeX.open('fixtures/test.bib', :filter => :latex)
 
-  turkay_chi = "Turkay, Cagatay, J. Parulek, N. Reuter, and Helwig Hauser. 2011. “Interactive Visual Analysis of Temporal Cluster Structures.” Computer Graphics Forum 30 (3). Wiley-Blackwell: 711–20. doi:10.1111/j.1467-8659.2011.01920.x. http://dx.doi.org/10.1111/j.1467-8659.2011.01920.x."
+  turkay_chi = "Turkay, Cagatay, J. Parulek, N. Reuter, and Helwig Hauser. 2011. “Interactive Visual Analysis of Temporal Cluster Structures.” Computer Graphics Forum 30 (3). Wiley-Blackwell: 711–20. doi:10.1111/j.1467-8659.2011.01920.x."
   turkay_ieee = "C. Turkay, J. Parulek, N. Reuter, and H. Hauser, “Interactive Visual Analysis of Temporal Cluster Structures,” Computer Graphics Forum, vol. 30, no. 3, pp. 711–720, Jun. 2011."
   tw_chi = "Torsney-Weir, Thomas, Ahmed Saad, Torsten Möller, Britta Weber, Hans-Christian Hege, Jean-Marc Verbavatz, and Steven Bergner. 2011. “Tuner: Principled Parameter Finding for Image Segmentation Algorithms Using Visual Response Surface Exploration.” IEEE Transactions on Visualization and Computer Graphics 17 (12): 1892–1901."
 
