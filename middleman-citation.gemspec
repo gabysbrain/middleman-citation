@@ -24,5 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "bibtex-ruby"
   spec.add_runtime_dependency "citeproc-ruby"
   spec.add_runtime_dependency "csl-styles"
-  spec.add_runtime_dependency "middleman-core", ["~> 4"]
+  spec.add_runtime_dependency "middleman-core", ["~> 4.0"]
 end

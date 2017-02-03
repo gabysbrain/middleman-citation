@@ -13,9 +13,9 @@ module Middleman
 
     def initialize(app, options_hash={}, &block)
       super
-      app.set(:bibtex,      BibTeX.open(options.bibtex, :filter => 'latex'))
-      app.set(:cite_style,  options.style)
-      app.set(:cite_format, options.format)
+      app.config[:bibtex] = BibTeX.open(options.bibtex, :filter => 'latex')
+      app.config[:cite_style] = options.style
+      app.config[:cite_format] = options.format
     end
   
     helpers do
@@ -24,7 +24,7 @@ module Middleman
       # Params:
       # +key+:: bibtex key located in the BibTeX file defined in the config
       def cite_full(key)
-        Citations::cite_full(key, bibtex, cite_style, cite_format)
+        Citations::cite_full(key, config.bibtex, config.cite_style, config.cite_format)
       end
 
       # Given a BibTeX citation return a block containing the citation
@@ -32,11 +32,11 @@ module Middleman
       # Params:
       # +key+:: bibtex key located in the BibTeX file defined in the config
       def cite_inline(key)
-        Citations::cite_inline(key, bibtex, cite_style)
+        Citations::cite_inline(key, config.bibtex, config.cite_style)
       end
 
       def citations_search(search_key, author = nil)
-        entries_matching_key = bibtex.query(search_key)
+        entries_matching_key = config.bibtex.query(search_key)
         entries = 
           if author then
             search_by_author(entries_matching_key, author)

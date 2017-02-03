@@ -9,6 +9,7 @@ group :development do
   gem 'yard'
   gem 'guard'
   gem 'pry'
+  gem 'middleman', ['~> 4.0']
 end
 
 group :test do
