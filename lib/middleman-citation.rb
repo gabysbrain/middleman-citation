@@ -36,13 +36,18 @@ module Middleman
       end
 
       def citations_search(search_key, author = nil)
-        entries_matching_key = config.bibtex.query(search_key)
-        entries = 
-          if author then
-            search_by_author(entries_matching_key, author)
-          else
-            entries_matching_key
-          end
+        if author then
+            entries = search_by_author(entries_matching_key, author)
+        else
+            entries_matching_key = config.bibtex.query(search_key)
+            entries ||= []
+
+            entries_matching_key.each do |entry|
+                next if entry.type == :string
+                entries << entry
+            end
+        end
+
         entries.sort { |x, y| y.year.to_i <=> x.year.to_i }.map(&:key)
       end
 
